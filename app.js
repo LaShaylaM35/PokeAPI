@@ -1,4 +1,4 @@
-async function pokemon(){
+async function getpokemon(){
 
     event.preventDefault()
 
@@ -10,9 +10,11 @@ async function pokemon(){
 
     let response = await fetch(baseUrl);
     let data = await response.json();
+    console.log(data);
 
     let pokemonName = document.getElementById("pokemon_name");
-    console.log(`Pokemon Name Is:${data.name}, Weight: ${data.weight}, Height: ${data.height}`);
-
+    pokemonName.innerHTML = `Pokemon Name Is: ${data.name}, Weight: ${data.weight}, Height: ${data.height}`;
+     
+    pokemonName.innerHTML += `<img src="${data.sprites.front_default}">`
     
 }
